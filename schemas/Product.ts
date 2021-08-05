@@ -1,6 +1,5 @@
 import { list } from '@keystone-next/keystone/schema';
 import { integer, relationship, select, text } from '@keystone-next/fields';
-import { document } from '@keystone-next/fields-document';
 
 export const Product = list({
   // TODO: access
