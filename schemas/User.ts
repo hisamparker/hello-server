@@ -21,7 +21,10 @@ export const User = list({
         itemView: { fieldMode: 'read' },
       },
     }),
-    // TODO: add roles, cart, and orders
+    orders: relationship({
+      ref: 'Order.user',
+      many: true,
+    }),
   },
   // sets the default view in the keystone gui, I LOVE THIS
   ui: {

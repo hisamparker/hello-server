@@ -23,9 +23,6 @@ export const Product = list({
         inlineEdit: { fields: ['image', 'altText'] },
       },
     }),
-    post: relationship({
-      ref: 'Post.product',
-    }),
     status: select({
       // when adding / editing an item we can set it to draft, unavailable, available ui options have to do with what the keystone ui looks like for the admin! there are tons of options
       options: [
