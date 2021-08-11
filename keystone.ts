@@ -8,8 +8,8 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
-import { Post } from './schemas/Post';
-import { PostImage } from './schemas/PostImage';
+import { Order } from './schemas/Order';
+import { OrderItem } from './schemas/OrderItem';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
@@ -82,8 +82,8 @@ export default withAuth(
       Product,
       ProductImage,
       CartItem,
-      Post,
-      PostImage,
+      Order,
+      OrderItem,
     }),
     // custom Mutation! you can see this in the graphql playground
     extendGraphqlSchema,
@@ -103,7 +103,7 @@ export default withAuth(
     session: withItemData(statelessSessions(sessionConfig), {
       // anything added here is passed along and added to the session object, if you put User: 'id name email', you'd get that info too
       // GraphQL query
-      User: 'id',
+      User: 'id email name',
     }),
   })
 );
