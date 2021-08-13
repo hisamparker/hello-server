@@ -5,6 +5,7 @@ export const Product = list({
   // TODO: access
   fields: {
     name: text({ isRequired: true }),
+    slug: text(),
     description: text({
       ui: {
         // how we're going to input it
