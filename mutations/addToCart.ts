@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { KeystoneContext, SessionStore } from '@keystone-next/types';
-import { CartItem } from '../schemas/CartItem';
 import { Session } from '../types';
 
 import { CartItemCreateInput } from '../.keystone/schema-types';
@@ -25,7 +24,7 @@ const addToCart = async(
   const allCartItems = await context.lists.CartItem.findMany({
     where: { user: { id: session.itemId }, product: { id: productId } },
     // we need to explicitly say what we want back with keystone mutations
-    resolveFields: 'id,quantity'
+    resolveFields: 'id'
   });
   // grab existingCartItem by destructuring it from allCartitems, there will only be one item in there and we name it whatever because array destructuring
   const [existingCartItem] = allCartItems;

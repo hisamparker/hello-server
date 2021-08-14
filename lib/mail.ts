@@ -2,7 +2,7 @@ import { createTransport, getTestMessageUrl } from 'nodemailer';
 
 const transport = createTransport({
   host: process.env.MAIL_HOST,
-  port: process.env.MAIL_PORT,
+  port: +process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS,
@@ -40,8 +40,8 @@ function makeANiceEmail(text: string) {
 // typing mailresponse
 export interface MailResponse {
   // go to https://jvilk.com/MakeTypes/ and paste in info you've logged out, then convert to json and run through here to get types
-  accepted?: (string)[] | null;
-  rejected?: (null)[] | null;
+  accepted?: string[] | null;
+  rejected?: null[] | null;
   envelopeTime: number;
   messageTime: number;
   messageSize: number;
@@ -49,13 +49,12 @@ export interface MailResponse {
   envelope: Envelope;
   messageId: string;
 }
-// typing envelope 
+// typing envelope
 export interface Envelope {
   from: string;
   // in tutorial this is marked as optional but it can't be optional for nodemailer
-  to: (string)[] | null;
+  to: string[] | null;
 }
-
 
 export async function sendPasswordResetEmail(
   // the token
@@ -74,8 +73,7 @@ export async function sendPasswordResetEmail(
     `),
   })) as MailResponse;
   // this says if we're using ethereal, grab the url to what was sent and use the nodemailer method, getTestMessageUrl, then we get a url to the email we sent
-  if(process.env.MAIL_USER.includes('ethereal.email')) {
+  if (process.env.MAIL_USER.includes('ethereal.email')) {
     console.log(`💌 Message Sent!  Preview it at ${getTestMessageUrl(info)}`);
-
   }
 }
