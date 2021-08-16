@@ -14,6 +14,7 @@ import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations/index';
+import { PurchasedItem } from './schemas/PurchasedItem';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/hello-tutorials';
@@ -84,6 +85,7 @@ export default withAuth(
       CartItem,
       Order,
       OrderItem,
+      PurchasedItem,
     }),
     // custom Mutation! you can see this in the graphql playground
     extendGraphqlSchema,

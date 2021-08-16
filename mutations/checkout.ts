@@ -88,8 +88,16 @@ const checkout = async(
       image: { connect: { id: cartItem.product.image.id }},
       product: { connect: { id: cartItem.product.id }},
     }
+    context.lists.PurchasedItem.createOne({
+      data: {
+        product: { connect: { id: cartItem.product.id }},
+        user: { connect: { id: userId }},
+      },
+      resolveFields: false,
+    })
     return orderItem;
   })
+  
   console.log('gonna create the order')
   // 5. Create the order and return it
   const order = await context.lists.Order.createOne({

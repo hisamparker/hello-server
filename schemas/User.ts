@@ -25,6 +25,10 @@ export const User = list({
       ref: 'Order.user',
       many: true,
     }),
+    tutorials: relationship({
+      ref: 'PurchasedItem.user',
+      many: true,
+    }),
   },
   // sets the default view in the keystone gui, I LOVE THIS
   ui: {
