@@ -124,7 +124,6 @@ const checkout = async(
 // total: 2898
   // 6. Clean up any old cart item, delete everything from user's cart
   const cartItemIds = user.cart.map(cartItem => cartItem.id);
-  console.log('gonna create delete cartItems')
   await context.lists.CartItem.deleteMany({
     //   expects an array of strings which we created about
     ids: cartItemIds
