@@ -57,7 +57,7 @@ export default withAuth(
     server: {
       // set cors to recognize our local front end server during development
       cors: {
-        origin: '*',
+        origin: 'https://upbeat-wozniak-ff6ab9.netlify.app/',
         credentials: true,
       },
     },
