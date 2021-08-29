@@ -6,4 +6,4 @@ layout.md
 variables.env
 *.env
 .env
-.keystone/*
+.keystone
