@@ -22,7 +22,7 @@ const databaseURL = process.env.DATABASE_URL;
 const sessionConfig = {
   maxAge: 60 * 60 * 24 * 365, // how long user stays signed in
   secret: process.env.COOKIE_SECRET,
-  sameSite: false,
+  sameSite: 'None',
   secure: true,
 };
 
