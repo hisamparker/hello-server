@@ -23,7 +23,7 @@ const sessionConfig = {
   maxAge: 60 * 60 * 24 * 365, // how long user stays signed in
   secret: process.env.COOKIE_SECRET,
   path: '/',
-  sameSite: 'None',
+  sameSite: 'none',
   secure: true,
 };
 
@@ -60,7 +60,7 @@ export default withAuth(
     server: {
       // set cors to recognize our local front end server during development
       cors: {
-        origin: 'https://upbeat-wozniak-ff6ab9.netlify.app/',
+        origin: 'https://upbeat-wozniak-ff6ab9.netlify.app',
         credentials: true,
       },
     },
